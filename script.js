@@ -9,3 +9,51 @@
 // also want to call this function again when the user saves their preferences to
 // immediately apply them. Make sure you also notify the user somehow that the preferences
 // were saved.
+let textGet = document.getElementById("name");
+let bgColorGet = document.getElementById("background-color");
+let txtColorGet = document.getElementById("foreground-color");
+let myForm = document.querySelector("form");
+let headingGet = document.getElementById("greeting")
+let body = document.querySelector("body")
+const writeTextInput = event => {
+    event.preventDefault();
+
+    let textContents = textGet.value;
+    let colorContents = colorGet.value;
+
+    console.log("the text is " + textContents);
+    console.log("the color is " + colorContents);
+    localStorage.setItem("name",textContents);
+    let myText = localStorage.getItem("textInput");
+    localStorage.setItem("colorInput", colorContents);
+};
+
+const changeFG = event => {
+    event.preventDefault();
+    let txtColorContents = txtColorGet.value;
+    localStorage.setItem("foreground-color", txtColorContents);
+    body.style.color = txtColorContents;
+}
+const changeBG = event => {
+    event.preventDefault();
+    let bgColorContents = bgColorGet.value;
+    localStorage.setItem("background-color", bgColorContents);
+    body.style.backgroundColor = bgColorContents;
+}
+
+/*const applySettings = event => {
+    event.preventDefault();
+    changeBG;
+    changeFG;
+}*/
+
+myForm.addEventListener("submit", changeBG);
+myForm.addEventListener("submit", changeFG);
+
+let myColor = localStorage.getItem("background-color");
+if (myColor != null)
+{
+    alert(myColor);
+    let body = document.querySelector("body");
+    body.style
+}
