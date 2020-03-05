@@ -28,11 +28,6 @@ const writeTextInput = event => {
     localStorage.setItem("colorInput", colorContents);
 };
 
-/*const changeGreeting = event => {
-    event.preventDefault();
-
-}*/
-
 const changeName = event => {
     event.preventDefault();
 
@@ -67,10 +62,27 @@ myForm.addEventListener("submit", changeFG);
 myForm.addEventListener("submit", changeName);
 
 
-/*let myColor = localStorage.getItem("background-color");
-if (myColor != null)
+let myBGColor = localStorage.getItem("background-color");
+let myFGColor = localStorage.getItem("foreground-color");
+let myName = localStorage.getItem("name");
+
+const setDefaultState = () => {
+if (myBGColor != null)
 {
-    alert(myColor);
+    alert(myBGColor);
     let body = document.querySelector("body");
-    body.style
-}*/
+    body.style.backgroundColor = myBGColor
+};
+if (myFGColor != null)
+{
+    alert(myFGColor);
+    let body = document.querySelector("body");
+    body.style.Color = myFGColor
+};
+if (myName != null)
+{
+    alert(myName);
+    headingGet.textContent = "greeting " + myName;
+};
+}
+setDefaultState();
