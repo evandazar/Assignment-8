@@ -13,8 +13,8 @@ let textGet = document.getElementById("name");
 let bgColorGet = document.getElementById("background-color");
 let txtColorGet = document.getElementById("foreground-color");
 let myForm = document.querySelector("form");
-let headingGet = document.getElementById("greeting")
-let body = document.querySelector("body")
+let headingGet = document.getElementById("greeting");
+let body = document.querySelector("body");
 const writeTextInput = event => {
     event.preventDefault();
 
@@ -28,18 +28,33 @@ const writeTextInput = event => {
     localStorage.setItem("colorInput", colorContents);
 };
 
+/*const changeGreeting = event => {
+    event.preventDefault();
+
+}*/
+
+const changeName = event => {
+    event.preventDefault();
+
+    let nameContents = textGet.value;
+
+    console.log("the name is " + nameContents);
+    localStorage.setItem("name", nameContents);
+    headingGet.textContent = "greeting " + nameContents;
+}
+
 const changeFG = event => {
     event.preventDefault();
     let txtColorContents = txtColorGet.value;
     localStorage.setItem("foreground-color", txtColorContents);
     body.style.color = txtColorContents;
-}
+};
 const changeBG = event => {
     event.preventDefault();
     let bgColorContents = bgColorGet.value;
     localStorage.setItem("background-color", bgColorContents);
     body.style.backgroundColor = bgColorContents;
-}
+};
 
 /*const applySettings = event => {
     event.preventDefault();
@@ -49,11 +64,13 @@ const changeBG = event => {
 
 myForm.addEventListener("submit", changeBG);
 myForm.addEventListener("submit", changeFG);
+myForm.addEventListener("submit", changeName);
 
-let myColor = localStorage.getItem("background-color");
+
+/*let myColor = localStorage.getItem("background-color");
 if (myColor != null)
 {
     alert(myColor);
     let body = document.querySelector("body");
     body.style
-}
+}*/
